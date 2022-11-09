@@ -55,6 +55,9 @@
     }
   },
   "dependencies": {
+    "@fontsource/poppins": "^4.5.10",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
     "dom": "^0.0.3",
     "joi": "^17.6.4",
     "react": "^18.2.0",

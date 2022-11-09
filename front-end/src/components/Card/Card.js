@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import CustomerContext from '../../context/customerContext';
-// import '../App.css';
+import './style.css';
 
 export const updatePrice = (price) => Number(price).toFixed(2).replace('.', ',');
 
@@ -56,16 +56,14 @@ function Cards({ product }) {
   };
 
   return (
-    <div>
+    <div className="product_card">
       <p
+        className="product_card_title"
         data-testid={ `customer_products__element-card-title-${product.id}` }
       >
         {product.name}
       </p>
-      <p data-testid={ `customer_products__element-card-price-${product.id}` }>
-        {updatePrice(product.price)}
-      </p>
-      <div className="img-cards">
+      <div className="product_card_image">
         <img
           width="100px"
           data-testid={ `customer_products__img-card-bg-image-${product.id}` }
@@ -74,27 +72,38 @@ function Cards({ product }) {
           alt={ product.name }
         />
       </div>
-      <button
-        data-testid={ `customer_products__button-card-rm-item-${product.id}` }
-        type="button"
-        onClick={ removeQuantity }
+      <p
+        data-testid={ `customer_products__element-card-price-${product.id}` }
+        className="product_card_price"
       >
-        -
-      </button>
-      <input
-        data-testid={ `customer_products__input-card-quantity-${product.id}` }
-        type="number"
-        min={ 0 }
-        onChange={ handleChange }
-        value={ quantity }
-      />
-      <button
-        data-testid={ `customer_products__button-card-add-item-${product.id}` }
-        type="button"
-        onClick={ addQuantity }
-      >
-        +
-      </button>
+        { `R$: ${updatePrice(product.price)} un` }
+      </p>
+      <div className="btn_container">
+        <button
+          className="product_card_button"
+          data-testid={ `customer_products__button-card-rm-item-${product.id}` }
+          type="button"
+          onClick={ removeQuantity }
+        >
+          -
+        </button>
+        <input
+          className="product_card_input"
+          data-testid={ `customer_products__input-card-quantity-${product.id}` }
+          type="number"
+          min={ 0 }
+          onChange={ handleChange }
+          value={ quantity }
+        />
+        <button
+          className="product_card_button"
+          data-testid={ `customer_products__button-card-add-item-${product.id}` }
+          type="button"
+          onClick={ addQuantity }
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

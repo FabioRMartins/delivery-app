@@ -24,6 +24,7 @@ function Header() {
   return (
     <div className="header">
       <Link
+        className="header_title"
         to="/customer/products"
         data-testid="customer_products__element-navbar-link-products"
       >
@@ -32,6 +33,7 @@ function Header() {
       {
         user.role === 'customer' && (
           <Link
+            className="header_title"
             to="/customer/orders"
             data-testid="customer_products__element-navbar-link-orders"
           >
@@ -40,12 +42,14 @@ function Header() {
         )
       }
       <Link
+        className="header_title"
         to="/user/profile"
         data-testid="customer_products__element-navbar-user-full-name"
       >
         {user.name}
       </Link>
       <button
+        className="button"
         type="button"
         onClick={ logout }
         data-testid="customer_products__element-navbar-link-logout"
