@@ -86,7 +86,10 @@ function Login() {
           </button>
         </form>
         {invalidUser && (
-          <span data-testid="common_login__element-invalid-email">
+          <span
+            data-testid="common_login__element-invalid-email"
+            className="invalid_user"
+          >
             Email ou senha inválidos
           </span>
         )}
