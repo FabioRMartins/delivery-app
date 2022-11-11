@@ -6,14 +6,13 @@
   flex-direction: column;
   justify-content: center;
   margin-bottom: 20px;
-  max-width: 300px;
   padding: 1rem;
   transition: all 0.2s ease-in-out;
 }
 
 .product_card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .product_card_image {
@@ -69,5 +68,5 @@
 
 .btn_container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }

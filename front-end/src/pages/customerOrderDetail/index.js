@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import OrderDetailTable from '../../components/orderDetail/orderDetail';
 import { getSalesById, getSellerById } from '../../api/request';
+import './style.css';
 
 const dataTestid = 'customer_order_details__element-order-details-label-';
 
@@ -36,44 +37,59 @@ export default function CustomerOrderDetail() {
   return (
     <div>
       <Header />
-      <h3>Detalhe do Pedido</h3>
-      <div>
-        { order?.length > 0 && (
-          <div>
-            <p data-testid={ `${dataTestid}order-id` }>
-              {`Pedido ${order[0].id}` }
-            </p>
-            <p data-testid={ `${dataTestid}seller-name` }>
-              { `P.Vend: ${name.seller?.name}` }
-            </p>
-            <p data-testid={ `${dataTestid}order-date` }>
-              { `${dataAtualFormatada(order[0].saleDate)}` }
-            </p>
+      <h3 className="order_detail_title">Detalhe do Pedido</h3>
+      <main className="main_order_detail_container">
+        <div className="order_detail_first_section">
+          { order?.length > 0 && (
+            <div>
+              <p
+                className="order_description"
+                data-testid={ `${dataTestid}order-id` }
+              >
+                {`Pedido ${order[0].id}` }
+              </p>
+              <p
+                className="order_description"
+                data-testid={ `${dataTestid}seller-name` }
+              >
+                { `P.Vend: ${name.seller?.name}` }
+              </p>
+              <p
+                className="order_description"
+                data-testid={ `${dataTestid}order-date` }
+              >
+                { `${dataAtualFormatada(order[0].saleDate)}` }
+              </p>
+              <p
+                className="order_description"
+                data-testid={ `${dataTestid}delivery-status` }
+              >
+                { order[0].status }
+              </p>
+              <button
+                data-testid="customer_order_details__button-delivery-check"
+                type="button"
+                disabled={ order[0].status !== 'Em Trânsito' }
+              >
+                MARCAR COMO ENTREGUE
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="main_order_detail">
+          <div className="order_detail">
+            <OrderDetailTable
+              className="order_description"
+              Products={ name.items?.products }
+            />
             <p
-              data-testid={ `${dataTestid}delivery-status` }
+              data-testid="customer_order_details__element-order-total-price"
             >
-              { order[0].status }
+              {`Total: R$${result?.toFixed(2).toString().replace('.', ',')}`}
             </p>
-            <button
-              data-testid="customer_order_details__button-delivery-check"
-              type="button"
-              disabled={ order[0].status !== 'Em Trânsito' }
-            >
-              MARCAR COMO ENTREGUE
-            </button>
           </div>
-        )}
-      </div>
-      <div>
-        <OrderDetailTable
-          Products={ name.items?.products }
-        />
-        <p
-          data-testid="customer_order_details__element-order-total-price"
-        >
-          {`Total: R$${result?.toFixed(2).toString().replace('.', ',')}`}
-        </p>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

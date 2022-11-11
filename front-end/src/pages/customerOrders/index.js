@@ -3,6 +3,7 @@ import Header from '../../components/header/Header';
 import OrderCard from '../../components/orderCard/orderCards';
 import saleContext from '../../context/saleContext';
 import { getSales } from '../../api/request';
+import './style.css';
 
 function CustomerOrder() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -19,7 +20,10 @@ function CustomerOrder() {
   return (
     <div>
       <Header />
-      <OrderCard />
+      <h3 className="title_text">Histórico de pedidos</h3>
+      <div className="order_container_page">
+        <OrderCard />
+      </div>
     </div>
   );
 }

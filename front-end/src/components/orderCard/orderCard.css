@@ -1,5 +1,106 @@
-.card-order-container {
-  border: 1px solid black;
+.main-container {
   display: flex;
-  gap: 15rem;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+  width: 80%;
+}
+
+.card-container {
+  background: #00000073;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.card-container button {
+  align-self: center;
+  background-color: rgb(8 8 8 / 36%);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 35%;
+}
+
+.card-container button:hover {
+  background-color: rgb(8, 8, 8);
+  box-shadow: 5px 5px 10px black(0, 0, 0, 1);
+  letter-spacing: 00.1rem;
+}
+
+.card-order-container {
+  align-items: center;
+  background: rgb(255, 254, 254);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-order-container:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  transform: scale(1.03);
+}
+
+
+.card-order {
+  color: white;
+}
+
+.card-status {
+  background-color: #dbdf00b0;
+  color: black;
+  font-size: 0.75rem;
+  left: -4rem;
+  outline: 1px solid white;
+  padding: 0.25rem 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 30px;
+  transform: rotate(328deg);
+  width: 260px;
+}
+
+.card-date {
+  background: linear-gradient(45deg, #8000de00, #4a00e000);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.card-total-price {
+  background: linear-gradient(45deg, #8000de00, #4a00e000);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.first-block {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 300;
+  justify-content: space-evenly;
+  letter-spacing: 1px;
+  padding-left: 6rem;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
 }

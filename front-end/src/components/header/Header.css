@@ -9,10 +9,13 @@
 }
 
 .header_title {
+  align-items: center;
   color: white;
   font-size: 1.2rem;
   font-weight: 300;
+  justify-content: center;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .header_title:hover {
@@ -29,7 +32,7 @@
   font-size: 1rem;
   padding: 0.3rem;
   transition: all 0.3s ease;
-  width: 8%;
+  width: 15%;
 }
 
 .button:hover {
