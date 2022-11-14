@@ -91,16 +91,15 @@
 }
 
 .first-block {
+  align-content: space-between;
   align-items: center;
   color: white;
   display: flex;
+  flex-flow: wrap;
   font-size: 1.2rem;
   font-weight: 300;
   justify-content: space-evenly;
   letter-spacing: 1px;
   padding-left: 6rem;
   text-align: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: space-between;
 }

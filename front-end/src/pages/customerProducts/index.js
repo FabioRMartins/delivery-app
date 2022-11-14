@@ -43,12 +43,12 @@ function CustomerProducts() {
   return (
     <div>
       <Header />
-      <div className="product_container">
-        {products.map((product, index) => (
-          <Cards product={ product } key={ index } />
-        ))}
-      </div>
-      <footer className="footer">
+      <div className="main_body">
+        <div className="product_container">
+          {products.map((product, index) => (
+            <Cards product={ product } key={ index } />
+          ))}
+        </div>
         <button
           className="btn_totalprice"
           type="button"
@@ -62,7 +62,7 @@ function CustomerProducts() {
             {`Ver carrinho: R$ ${updatePrice(getTotalPrice())}`}
           </p>
         </button>
-      </footer>
+      </div>
     </div>
   );
 }

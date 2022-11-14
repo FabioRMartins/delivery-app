@@ -38,31 +38,45 @@ export default function CustomerOrderDetail() {
     <div>
       <Header />
       <h3 className="order_detail_title">Detalhe do Pedido</h3>
-      <main className="main_order_detail_container">
-        <div className="order_detail_first_section">
+      <div className="all_page">
+        <main className="main_container_order_detail">
+          <div className="table_order_detail">
+            <OrderDetailTable
+              Products={ name.items?.products }
+            />
+            <h1
+              data-testid="customer_order_details__element-order-total-price"
+              className="order_total_price"
+            >
+              {`Total: R$${result?.toFixed(2).toString().replace('.', ',')}`}
+            </h1>
+          </div>
+        </main>
+
+        <div className="oder_detail_info">
           { order?.length > 0 && (
             <div>
               <p
-                className="order_description"
                 data-testid={ `${dataTestid}order-id` }
+                className="text"
               >
                 {`Pedido ${order[0].id}` }
               </p>
               <p
-                className="order_description"
                 data-testid={ `${dataTestid}seller-name` }
+                className="text"
               >
                 { `P.Vend: ${name.seller?.name}` }
               </p>
               <p
-                className="order_description"
                 data-testid={ `${dataTestid}order-date` }
+                className="text"
               >
                 { `${dataAtualFormatada(order[0].saleDate)}` }
               </p>
               <p
-                className="order_description"
                 data-testid={ `${dataTestid}delivery-status` }
+                className="text"
               >
                 { order[0].status }
               </p>
@@ -76,20 +90,7 @@ export default function CustomerOrderDetail() {
             </div>
           )}
         </div>
-        <div className="main_order_detail">
-          <div className="order_detail">
-            <OrderDetailTable
-              className="order_description"
-              Products={ name.items?.products }
-            />
-            <p
-              data-testid="customer_order_details__element-order-total-price"
-            >
-              {`Total: R$${result?.toFixed(2).toString().replace('.', ',')}`}
-            </p>
-          </div>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

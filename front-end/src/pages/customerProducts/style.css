@@ -6,14 +6,15 @@ body {
 }
 
 .product_container {
+  background: #323193;
   display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 35px;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  margin-top: 20px;
-  max-width: 100%;
+  margin: auto;
   padding: 3rem;
   transition: all 0.2s ease-in-out;
+  width: 50%;
 }
 
 .btn_totalprice {

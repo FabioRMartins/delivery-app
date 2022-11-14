@@ -8,20 +8,17 @@
   text-align: center;
 }
 
-.order_detail_first_section {
+.all_page {
   align-items: center;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 5rem;
+  text-align: center;
   width: 100%;
 }
 
-.order_description {
-  margin: 10px;
-}
-
-.main_order_detail_container {
+.main_container_order_detail {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,11 +26,44 @@
   width: 100%;
 }
 
-.main_order_detail {
+.table_order_detail {
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
   width: 100%;
+}
+
+.order_total_price {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 300;
+  justify-content: flex-end;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.oder_detail_info {
+  align-items: center;
+  background: #00000073;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  width: 35%;
+}
+
+.text {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 0.7rem;
+  margin-top: 50px;
+  text-align: center;
 }

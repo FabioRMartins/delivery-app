@@ -1,0 +1,10 @@
+.order_description {
+  background: #00000073;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: 300;
+  height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+}
