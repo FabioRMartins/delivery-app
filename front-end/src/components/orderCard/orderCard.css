@@ -58,11 +58,10 @@
 }
 
 .card-status {
-  background-color: #dbdf00b0;
   color: black;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   left: -4rem;
-  outline: 1px solid white;
+  outline: 0.85px solid white;
   padding: 0.25rem 0;
   position: absolute;
   text-align: center;
@@ -70,6 +69,14 @@
   top: 30px;
   transform: rotate(328deg);
   width: 260px;
+}
+
+.delivered {
+  background-color: #39d939de;
+}
+
+.not-delivered {
+  background-color: #dbcb1af0;
 }
 
 .card-date {

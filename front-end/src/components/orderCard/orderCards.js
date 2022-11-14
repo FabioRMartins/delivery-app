@@ -22,36 +22,44 @@ function OrderCard() {
           key={ item.id }
           data-testid={ `customer_orders__element-order-id-${item.userId}` }
         >
-          <div className="card-header">
-            <div className="first-block">
-              <div className="card-order">
+          <div className="first-block">
+            <div className="card-order">
+              <p
+                data-testid={ `customer_orders__element-order-id-${item.id}` }
+              >
+                {`Pedido ${item.id}`}
+              </p>
+            </div>
+            <div className="card-status">
+              { `${item.status}` === 'Entregue' ? (
                 <p
-                  data-testid={ `customer_orders__element-order-id-${item.id}` }
-                >
-                  {`Pedido ${item.id}`}
-                </p>
-              </div>
-              <div className="card-status">
-                <p
+                  className="delivered"
                   data-testid={ `customer_orders__element-delivery-status-${item.id}` }
                 >
                   {`${item.status}`}
                 </p>
-              </div>
-              <div className="card-date">
+              ) : (
                 <p
-                  data-testid={ `customer_orders__element-order-date-${item.id}` }
+                  className="not-delivered"
+                  data-testid={ `customer_orders__element-delivery-status-${item.id}` }
                 >
-                  {`${getDate(item)}`}
+                  {`${item.status}`}
                 </p>
-              </div>
-              <div className="card-total-price">
-                <p
-                  data-testid={ `customer_orders__element-card-price-${item.id}` }
-                >
-                  {`Total: R$${Number(item.totalPrice).toFixed(2).replace('.', ',')}`}
-                </p>
-              </div>
+              )}
+            </div>
+            <div className="card-date">
+              <p
+                data-testid={ `customer_orders__element-order-date-${item.id}` }
+              >
+                {`${getDate(item)}`}
+              </p>
+            </div>
+            <div className="card-total-price">
+              <p
+                data-testid={ `customer_orders__element-card-price-${item.id}` }
+              >
+                {`Total: R$${Number(item.totalPrice).toFixed(2).replace('.', ',')}`}
+              </p>
             </div>
           </div>
           <button
