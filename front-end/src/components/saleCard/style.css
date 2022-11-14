@@ -1,0 +1,57 @@
+.first_section {
+  align-content: space-between;
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-flow: wrap;
+  font-size: 1.2rem;
+  font-weight: 300;
+  justify-content: space-evenly;
+  letter-spacing: 1px;
+  padding-left: 6rem;
+  text-align: center;
+}
+
+.seller_card_order {
+  color: white;
+}
+
+.seller_card_status {
+  color: black;
+  font-size: 0.85rem;
+  left: -4rem;
+  outline: 0.85px solid white;
+  padding: 0.25rem 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 30px;
+  transform: rotate(328deg);
+  width: 260px;
+}
+
+.seller_waiting {
+  background-color: #dbcb1af0;
+}
+
+.seller_traveling {
+  background-color: #009efb;
+}
+
+.seller_card_date {
+  background: linear-gradient(45deg, #8000de00, #4a00e000);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.seller_card_total_price {
+  background: linear-gradient(45deg, #8000de00, #4a00e000);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+}

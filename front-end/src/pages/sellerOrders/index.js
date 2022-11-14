@@ -4,6 +4,7 @@ import getSales from '../../api/getSales';
 import Header from '../../components/header/Header';
 import SaleCard from '../../components/saleCard';
 import { getUserFromLS } from '../../helpers/localStorage';
+import './style.css';
 
 export default function SellerOrders() {
   const [sales, setSales] = useState([]);
@@ -24,10 +25,11 @@ export default function SellerOrders() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="seller_order_main_container">
         {
           sales.map((sale) => (
             <button
+              className="seller_order_card_container"
               type="button"
               key={ sale.id }
               onClick={ () => navigate(`/seller/orders/${sale.id}`) }

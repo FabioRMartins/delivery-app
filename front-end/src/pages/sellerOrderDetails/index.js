@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import { sellerOrder, sellerProducts, orderStatus } from '../../api/sellerOrderDetails';
+import './style.css';
 
 function SellerOrderDetails() {
   const { id } = useParams();
@@ -63,48 +64,20 @@ function SellerOrderDetails() {
   return !order ? (<div>Loading</div>) : (
     <div>
       <Header />
-      <h1>Detalhes de Pedido</h1>
-      <div>
-        <p
-          data-testid="seller_order_details__element-order-details-label-order-id"
-        >
-          {`Pedido - ${order[0]?.id}`}
-        </p>
-        <p
-          data-testid="seller_order_details__element-order-details-label-order-date"
-        >
-          {getDate(order)}
-        </p>
-        <p
-          data-testid="seller_order_details__element-order-details-label-delivery-status"
-        >
-          {order[0]?.status}
-        </p>
-        <button
-          type="button"
-          data-testid="seller_order_details__button-preparing-check"
-          disabled={ disabled.preparingDisabled }
-          onClick={ preparingOrder }
-        >
-          Preparar Pedido
-        </button>
-        <button
-          type="button"
-          data-testid="seller_order_details__button-dispatch-check"
-          disabled={ disabled.deliveredDisabled }
-          onClick={ delivered }
-        >
-          Saiu Para Entrega
-        </button>
-        <table>
-          <thead>
+      <h3 className="seller_order_detail_title">Detalhe do Pedido</h3>
+      <main className="main_container_seller_order_detail">
+        <div className="table_order_seller_detail">
+          <table>
             <th>Item</th>
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
             {products?.products.map((prod, index) => (
-              <tr key={ index }>
+              <tr
+                className="seller_description"
+                key={ index }
+              >
                 <td
                   data-testid={
                     `seller_order_details__element-order-table-item-number-${index}`
@@ -142,15 +115,60 @@ function SellerOrderDetails() {
                 </td>
               </tr>
             ))}
-          </thead>
-          <span
-            data-testid={ `seller_orders__element-delivery-status-${order[0]?.id}` }
-          />
-          <div data-testid="seller_order_details__element-order-total-price">
-            {`Total: R$${result?.toFixed(2).toString().replace('.', ',')}`}
-          </div>
-        </table>
-      </div>
+            <span
+              data-testid={ `seller_orders__element-delivery-status-${order[0]?.id}` }
+            />
+          </table>
+          <h1
+            className="seller_total_price"
+            data-testid="seller_order_details__element-order-total-price"
+          >
+            Total: R$
+            <span>{result?.toFixed(2).toString().replace('.', ',')}</span>
+          </h1>
+        </div>
+        <div className="seller_detail_info">
+          <p
+            className="seller_text"
+            data-testid="seller_order_details__element-order-details-label-order-id"
+          >
+            {`Pedido: ${order[0]?.id}`}
+          </p>
+          <p
+            className="seller_text"
+            data-testid="seller_order_details__element-order-details-label-order-date"
+          >
+            Data do pedido:
+            {' '}
+            {getDate(order)}
+          </p>
+          <p
+            className="seller_text"
+            data-testid="
+              seller_order_details__element-order-details-label-delivery-status"
+          >
+            Status do pedido:
+            {' '}
+            {order[0]?.status}
+          </p>
+          <button
+            type="button"
+            data-testid="seller_order_details__button-preparing-check"
+            disabled={ disabled.preparingDisabled }
+            onClick={ preparingOrder }
+          >
+            Preparar Pedido
+          </button>
+          <button
+            type="button"
+            data-testid="seller_order_details__button-dispatch-check"
+            disabled={ disabled.deliveredDisabled }
+            onClick={ delivered }
+          >
+            Saiu Para Entrega
+          </button>
+        </div>
+      </main>
     </div>
   );
 }

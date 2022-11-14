@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { updatePrice } from '../Card/Card';
-import styles from './index.module.css';
+import './style.css';
 
 export default function SaleCard({ sale }) {
   const getDate = () => {
@@ -12,42 +12,52 @@ export default function SaleCard({ sale }) {
   };
 
   return (
-    <>
-      <div className={ styles.blockOne }>
-        <p>Pedido</p>
+    <div className="first_section">
+      <div className="seller_card_order">
         <p
           data-testid={ `seller_orders__element-order-id-${sale.id}` }
         >
-          {sale.id}
+          {`Pedido ${sale.id}` }
         </p>
       </div>
-      <div className={ styles.blockTwo }>
-        <div className={ styles.blockThree }>
+      <div className="seller_card_status">
+        { `${sale.status}` === 'Em Trânsito' ? (
           <p
+            className="seller_traveling"
             data-testid={ `seller_orders__element-delivery-status-${sale.id}` }
           >
             {sale.status}
           </p>
-          <div>
-            <p
-              data-testid={ `seller_orders__element-order-date-${sale.id}` }
-            >
-              {getDate()}
-            </p>
-            <p
-              data-testid={ `seller_orders__element-card-price-${sale.id}` }
-            >
-              {`R$ ${updatePrice(sale.totalPrice)}`}
-            </p>
-          </div>
-        </div>
+        ) : (
+          <p
+            className="seller_waiting"
+            data-testid={ `seller_orders__element-delivery-status-${sale.id}` }
+          >
+            {sale.status}
+          </p>
+        )}
+      </div>
+
+      <div className="seller_card_date">
         <p
-          data-testid={ `seller_orders__element-card-address-${sale.id}` }
+          data-testid={ `seller_orders__element-order-date-${sale.id}` }
         >
-          {`${sale.deliveryAddress}, ${sale.deliveryNumber}`}
+          {getDate()}
         </p>
       </div>
-    </>
+      <div className="seller_card_total_price">
+        <p
+          data-testid={ `seller_orders__element-card-price-${sale.id}` }
+        >
+          {`R$ ${updatePrice(sale.totalPrice)}`}
+        </p>
+      </div>
+      <p
+        data-testid={ `seller_orders__element-card-address-${sale.id}` }
+      >
+        {`${sale.deliveryAddress}, ${sale.deliveryNumber}`}
+      </p>
+    </div>
   );
 }
 

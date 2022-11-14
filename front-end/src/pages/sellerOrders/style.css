@@ -1,0 +1,29 @@
+.seller_order_main_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.seller_order_card_container {
+  background: #00000073;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.seller_order_card_container:hover {
+  background-color: rgb(8, 8, 8);
+  box-shadow: 5px 5px 10px black(0, 0, 0, 1);
+  cursor: pointer;
+  letter-spacing: 00.3rem;
+}

@@ -31,16 +31,16 @@ function OrderCard() {
               </p>
             </div>
             <div className="card-status">
-              { `${item.status}` === 'Entregue' ? (
+              { `${item.status}` === 'Em Trânsito' ? (
                 <p
-                  className="delivered"
+                  className="traveling"
                   data-testid={ `customer_orders__element-delivery-status-${item.id}` }
                 >
                   {`${item.status}`}
                 </p>
               ) : (
                 <p
-                  className="not-delivered"
+                  className="waiting"
                   data-testid={ `customer_orders__element-delivery-status-${item.id}` }
                 >
                   {`${item.status}`}

@@ -53,7 +53,7 @@ export default function CustomerOrderDetail() {
           </div>
         </main>
 
-        <div className="oder_detail_info">
+        <div className="order_detail_info">
           { order?.length > 0 && (
             <div>
               <p

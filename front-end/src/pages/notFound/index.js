@@ -1,6 +1,8 @@
+import './style.css';
+
 function NotFound() {
   return (
-    <main>
+    <main className="main_text">
       <p>PÁGINA NÃO ENCONTRADA</p>
     </main>
   );
