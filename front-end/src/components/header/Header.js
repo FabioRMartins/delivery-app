@@ -37,10 +37,25 @@ function Header() {
             to="/customer/orders"
             data-testid="customer_products__element-navbar-link-orders"
           >
-            Meus pedidos
+            { getByUserRole[user.role] }
           </Link>
         )
       }
+      { user.role === 'seller' ? (
+        <Link
+          to="/seller/orders"
+          data-testid="customer_products__element-navbar-link-orders"
+        >
+          Pedidos
+        </Link>
+      ) : (
+        <Link
+          to="/customer/orders"
+          data-testid="customer_products__element-navbar-link-orders"
+        >
+          Meus pedidos
+        </Link>
+      )}
       <Link
         className="header_title"
         to="/user/profile"
