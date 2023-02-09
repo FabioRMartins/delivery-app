@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import RegisterError from '../../components/registerError';
 import { INITIAL_NEW_USER } from '../../helpers/initialStates';
-import endpoints from '../../helpers/backendEndpoints';
 import isNewUserValid from '../../helpers/isNewUserValid';
 import responseStatus from '../../helpers/responseStatus';
 import { saveUserOnLS } from '../../helpers/localStorage';
 import redirectByRole from '../../helpers/redirectByRole';
 import './style.css';
+import createUser from '../../api/createUser';
 
 function Register() {
   const [newUser, setNewUser] = useState(INITIAL_NEW_USER);
@@ -34,11 +33,8 @@ function Register() {
   const sendToServer = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios({
-        method: 'POST',
-        url: endpoints.register,
-        data: { ...newUser },
-      });
+      const res = await createUser(newUser, 'customer');
+      console.log(res);
       setServerResponse(res.data);
       if (res.status === responseStatus.created) {
         saveUserOnLS(res.data);
